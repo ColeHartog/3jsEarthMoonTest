@@ -22,7 +22,7 @@
             var matsphere1 = new THREE.MeshPhongMaterial();
             matsphere1.map = THREE.ImageUtils.loadTexture('8081-earthmap10k.jpg');
             matsphere1.bumpMap = THREE.ImageUtils.loadTexture('8081-earthbump10k.jpg');
-            matsphere1.bumpScale = .5;
+            matsphere1.bumpScale = 5;
             matsphere1.specularMap = THREE.ImageUtils.loadTexture('8081-earthspec10k.jpg');
             matsphere1.specular = new THREE.Color('grey');
             matsphere1.shininess = 5;
@@ -30,18 +30,7 @@
             var sphere1 = new THREE.Mesh(geosphere1, matsphere1);
             sphere1.position.z = -100;
             
-            var geosphere2 = new THREE.SphereGeometry(50.5,25,25);
-            var matsphere2 = new THREE.MeshLambertMaterial({color: "orange", wireframe: true});
-            var sphere2 = new THREE.Mesh(geosphere2, matsphere2);
-            sphere2.position.z = -100;
-            sphere2.rotation.x = -0.4;
             
-            var geosphere3 = new THREE.SphereGeometry(10.5,25,25);
-            var matsphere3 = new THREE.MeshLambertMaterial({color: "purple", wireframe: true});
-            var sphere3 = new THREE.Mesh(geosphere3, matsphere3);
-            sphere3.position.z = -100;
-            sphere3.position.x = 80;
-            sphere3.rotation.x = .5;
             
             var geosphere4 = new THREE.SphereGeometry(10,25,25);
             var matsphere4 = new THREE.MeshLambertMaterial({color: "gray"});
@@ -63,21 +52,21 @@
             sphere5.position.z = -75;
             sphere5.rotation.y = 1;
             
-            var geosphere6 = new THREE.SphereGeometry(50.5, 32, 32);
+            var geosphere6 = new THREE.SphereGeometry(51, 32, 32);
             var matsphere6 = new THREE.MeshPhongMaterial();
             matsphere6.map = THREE.ImageUtils.loadTexture('earthcloudmap.jpg');
             matsphere6.transparent = true;
+            matsphere6.alphaMap = THREE.ImageUtils.loadTexture('earthcloudmaptrans2.jpg');
+            matsphere6.opacity = .75;
             var sphere6 = new THREE.Mesh(geosphere6, matsphere6);
             sphere6.position.z = -100;
             
             
             
             scene.add(sphere1);
-//            scene.add(sphere2);
-//            scene.add(sphere3);
             scene.add(sphere4);
             scene.add(sphere5);
-//            scene.add(sphere6);
+            scene.add(sphere6);
             
             var directionalLight = new THREE.DirectionalLight(0xffffff, .5);
             directionalLight.position.set(1,1,1);
@@ -100,16 +89,15 @@
             var render = function(){
                 requestAnimationFrame(render);
                 
-//                sphere2.rotation.x += 0.0015;
+
                 sphere1.rotation.y -= 0.005;
-//                sphere2.rotation.z += 0.0015;
-                
+
                 sphere4.rotation.y -= 0.0055;
                 
-                sphere3.position.x = Math.sin(-s3x/150+Math.PI)*70;
+                sphere6.rotation.y -= 0.0045;
+                
                 s3x++;
                 
-                sphere3.position.z = -100 + Math.cos(s3x/150+Math.PI)*70;
                 sphere4.position.x = Math.sin(-s3x/150+Math.PI)*70;
                 
                 sphere4.position.z = -100 + Math.cos(s3x/150+Math.PI)*70;
