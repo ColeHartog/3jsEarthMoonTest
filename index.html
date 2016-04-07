@@ -22,10 +22,10 @@
             var matsphere1 = new THREE.MeshPhongMaterial();
             matsphere1.map = THREE.ImageUtils.loadTexture('8081-earthmap10k.jpg');
             matsphere1.bumpMap = THREE.ImageUtils.loadTexture('8081-earthbump10k.jpg');
-            matsphere1.bumpScale = 5;
+            matsphere1.bumpScale = .75;
             matsphere1.specularMap = THREE.ImageUtils.loadTexture('8081-earthspec10k.jpg');
             matsphere1.specular = new THREE.Color('grey');
-            matsphere1.shininess = 5;
+            matsphere1.shininess = .75;
             
             var sphere1 = new THREE.Mesh(geosphere1, matsphere1);
             sphere1.position.z = -100;
@@ -92,7 +92,7 @@
 
                 sphere1.rotation.y -= 0.005;
 
-                sphere4.rotation.y -= 0.0055;
+                sphere4.rotation.y -= 0.00525;
                 
                 sphere6.rotation.y -= 0.0045;
                 
