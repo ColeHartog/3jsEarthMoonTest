@@ -82,11 +82,20 @@
             camera.position.y = 30;
             camera.rotation.x = -.29;
             
+//            window.addEventListener('resize', onWindowResize, false);
+//            
+//            function onWindowResize(){
+//                camera.aspect = window.innerWidth / window.innerHeight;
+//                camera.updateProjectionMatrix();
+//                render.setSize(window.innerWidth, window.innerHeight);
+//            }
+            
+            
             var uod = true;
             var lor = true;
             var s3x = 0;
             
-            var render = function(){
+                var render = function(){
                 requestAnimationFrame(render);
                 
 
